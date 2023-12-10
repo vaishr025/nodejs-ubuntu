@@ -1,0 +1,21 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+  tags:
+    - nginx_installation
+
+- name: Configure Nginx proxy
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/example.com
+  notify: Restart Nginx
+  tags:
+    - nginx_configuration
+
+- name: Enable Nginx site
+  shell: ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+  notify: Restart Nginx
+  tags:
+    - nginx_enable

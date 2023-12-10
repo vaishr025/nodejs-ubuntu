@@ -1,0 +1,10 @@
+---
+- name: Create application directory
+  file:
+    path: "{{ app_path }}/node_app"
+    state: directory
+
+- name: Copy application files
+  copy:
+    src: "/{{ js_file_path }}/{{ js_file }}"
+    dest: "{{ app_path }}/node-app/"

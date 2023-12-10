@@ -1,0 +1,9 @@
+---
+
+app_path: /home/node
+app_user: node
+ansible_user: {{ user_name }}
+ansible_user_password: {{ user_password }}
+js_file_path: /home/jscode
+js_file: hello.js
+pm2_username: sammy

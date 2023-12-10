@@ -1,0 +1,31 @@
+---
+- name: Install PM2 globally
+  npm:
+    name: pm2@latest
+    global: yes
+
+- name: Start Node.js application with PM2
+  become_user: {{ app_user }}
+  become: yes
+  shell: pm2 start {{ app_path }}/node_app/{{ js_file }}
+
+- name: Configure PM2 startup on boot
+  command: "sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u {{ pm2_username }} --hp /home/{{ pm2_username }}"
+  become: yes
+
+- name: Save PM2 process list and environments
+  command: pm2 save
+  become: yes
+
+- name: Start PM2 service
+  service:
+    name: "{{ pm2_username }} " 
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  become: yes
+
+- name: Check PM2 service status
+  systemd:
+    name: "{{ pm2_username }}"
+  become: yes

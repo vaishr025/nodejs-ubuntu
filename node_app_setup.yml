@@ -1,0 +1,9 @@
+---
+- name: Set up Node.js Application
+  hosts: web_servers
+  become: yes
+  roles:
+    - nodejs_setup
+    - appfiles_setup
+    - pm2_setup
+    - run_app
