@@ -9,14 +9,15 @@ This guide demonstrates how to create and use an Ansible Vault file to securely 
    ```bash
    vi ansible-vault create group_vars/vault_secret.yml
 
+   ```
    Enter a password for the Vault file when prompted.
 
 2.  ** Provide following contents to vault_secret.yml**
-   ---
+   ```
    user_name:
 
    user_password:
-   
+   ```
 3. Save the file 
 
 ## Executing playbook 
