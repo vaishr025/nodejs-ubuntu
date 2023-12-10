@@ -1,7 +1,6 @@
 ---
 
 app_path: /home/node
-app_user: node
 js_file_path: /home/jscode
 js_file: hello.js
 pm2_username: sammy

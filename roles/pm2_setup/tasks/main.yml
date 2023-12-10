@@ -5,7 +5,6 @@
     global: yes
 
 - name: Start Node.js application with PM2
-  become_user: {{ app_user }}
   become: yes
   shell: pm2 start {{ app_path }}/node_app/{{ js_file }}
 
