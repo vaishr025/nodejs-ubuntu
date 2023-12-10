@@ -6,4 +6,4 @@
     - nodejs_setup
     - appfiles_setup
     - pm2_setup
-    - run_app
+    - configure_nginx
