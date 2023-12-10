@@ -16,7 +16,7 @@ This guide demonstrates how to create and use an Ansible Vault file to securely 
    user_name:
    user_password:
 
-3. Save the password 
+3. Save the file 
 
 ## Executing playbook 
 
